@@ -1,58 +1,153 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Webaru Next
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Webaru Next คือเว็บแอปพลิเคชันที่พัฒนาด้วย Laravel ปัจจุบันโครงการอยู่ในระยะเริ่มต้น โดยได้จัดเตรียมโครงสร้างพื้นฐานสำหรับการพัฒนาฟีเจอร์ทางธุรกิจในลำดับถัดไป
 
-## About Laravel
+> **สถานะโครงการ:** อยู่ระหว่างการพัฒนา ยังไม่มี API สาธารณะหรือฟีเจอร์ทางธุรกิจที่พร้อมใช้งานจริง
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## เทคโนโลยีที่ใช้
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- PHP 8.3 ขึ้นไป
+- Laravel 13
+- MySQL
+- Pest 5
+- Tailwind CSS 4
+- Vite 8
+- Laravel Sail
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ความต้องการของระบบ
 
-## Learning Laravel
+ก่อนติดตั้ง โปรดตรวจสอบว่าเครื่องมีเครื่องมือต่อไปนี้:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- PHP 8.3 ขึ้นไป
+- Composer
+- Node.js และ npm
+- MySQL หรือฐานข้อมูลอื่นที่ Laravel รองรับ
+- PHP extensions ที่ Laravel ต้องใช้
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+สามารถเลือกใช้งานผ่าน Docker ด้วย Laravel Sail ได้เช่นกัน
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## การติดตั้ง
 
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+โคลน repository และเข้าสู่โฟลเดอร์โครงการ:
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/amnatkaeophupha/webaru-next.git
+cd webaru-next
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+ติดตั้งและตั้งค่าโครงการด้วยคำสั่ง:
 
-## Contributing
+```bash
+composer run setup
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+คำสั่งดังกล่าวจะดำเนินการต่อไปนี้:
 
-## Code of Conduct
+1. ติดตั้ง PHP dependencies
+2. สร้างไฟล์ `.env` จาก `.env.example`
+3. สร้าง application key
+4. รัน database migrations
+5. ติดตั้ง frontend dependencies
+6. build frontend assets
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+ตรวจสอบค่าการเชื่อมต่อฐานข้อมูลใน `.env` ก่อนรัน migration กับฐานข้อมูลที่ใช้งานร่วมกับผู้อื่น
 
-## Security Vulnerabilities
+## การพัฒนา
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+เริ่ม application server, queue worker, log viewer และ Vite development server พร้อมกัน:
 
-## License
+```bash
+composer run dev
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+จากนั้นเปิดแอปพลิเคชันที่:
+
+```text
+http://localhost:8000
+```
+
+ตรวจสอบสถานะของแอปพลิเคชันได้ที่:
+
+```text
+http://localhost:8000/up
+```
+
+## การทดสอบ
+
+รันชุดทดสอบทั้งหมด:
+
+```bash
+composer test
+```
+
+หรือรัน Pest โดยตรง:
+
+```bash
+php artisan test --compact
+```
+
+## การจัดรูปแบบโค้ด
+
+จัดรูปแบบไฟล์ PHP ด้วย Laravel Pint:
+
+```bash
+vendor/bin/pint --format agent
+```
+
+## การพัฒนา Frontend
+
+เริ่ม Vite development server:
+
+```bash
+npm run dev
+```
+
+สร้าง production build:
+
+```bash
+npm run build
+```
+
+## โครงสร้างโครงการ
+
+```text
+app/                โค้ดหลักของแอปพลิเคชัน
+bootstrap/          การเริ่มต้น framework และการตั้งค่า middleware
+config/             ไฟล์กำหนดค่าของแอปพลิเคชัน
+database/           migrations, factories และ seeders
+resources/          Blade views, JavaScript และ CSS
+routes/             เส้นทางสำหรับ web และ console
+tests/              ชุดทดสอบ Feature และ Unit ด้วย Pest
+```
+
+## สิ่งที่มีในปัจจุบัน
+
+- โครงสร้างพื้นฐานของ Laravel
+- User model และฐานข้อมูลเริ่มต้น
+- ระบบ cache, queue และ session ผ่านฐานข้อมูล
+- Health-check endpoint
+- สภาพแวดล้อมสำหรับทดสอบด้วย Pest
+- Tailwind CSS และ Vite
+
+ระบบ authentication, authorization, โมดูลทางธุรกิจ และ API จะได้รับการบันทึกในเอกสารเมื่อพัฒนาแล้ว
+
+## รายการตรวจสอบก่อนนำขึ้น Production
+
+- กำหนด `APP_ENV=production`
+- กำหนด `APP_DEBUG=false`
+- ตั้งค่า `APP_URL` และการเชื่อมต่อฐานข้อมูลให้ถูกต้อง
+- ตั้งค่า cache, queue, session, mail และ logging
+- รัน database migrations
+- build frontend assets
+- cache configuration และ routes
+- เปิด queue worker แบบถาวร
+- รันชุดทดสอบทั้งหมด
+- เก็บ secrets นอกระบบ version control
+
+## ความปลอดภัย
+
+หากพบช่องโหว่ด้านความปลอดภัย โปรดอย่าเปิดเผยผ่าน public issue และให้ติดต่อผู้ดูแลโครงการเป็นการส่วนตัว
+
+## สัญญาอนุญาต
+
+โครงการนี้ยังไม่ได้ระบุสัญญาอนุญาตอย่างเป็นทางการ
