@@ -1,9 +1,52 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+/*
+|--------------------------------------------------------------------------
+| Tailwind Sources
+|--------------------------------------------------------------------------
+| ระบุไฟล์ที่ Tailwind ต้องตรวจสอบ class ที่ถูกใช้งาน
+*/
+
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+@source "../**/*.blade.php";
+@source "../**/*.js";
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /*
+     * เปลี่ยนค่าสีให้ตรงกับคู่มืออัตลักษณ์มหาวิทยาลัย
+     */
+
+    --color-university-primary: #7a1f2b;
+    --color-university-primary-dark: #54131c;
+
+    --color-university-secondary: #d4a017;
+    --color-university-secondary-light: #f5d76e;
+
+    --color-university-surface: #f8fafc;
+    --color-university-text: #172033;
+}
+/*
+|--------------------------------------------------------------------------
+| Alpine.js
+|--------------------------------------------------------------------------
+| ป้องกัน element แสดงก่อน Alpine เริ่มทำงาน
+*/
+
+[x-cloak] {
+    display: none !important;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Base Styles
+|--------------------------------------------------------------------------
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Noto Sans Thai", sans-serif;
 }
