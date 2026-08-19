@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+
+/* =============================================================
+   WebARU Sources
+============================================================= */
+
+@source "../views/webaru_2026/**/*.blade.php";
+@source "../js/webaru_2026.js";
+
+
+/* =============================================================
+   WebARU Design Tokens
+============================================================= */
+
+@theme {
+
+    /* ---------------------------------------------------------
+       Typography
+    --------------------------------------------------------- */
+
+    --font-sans:
+        "Noto Sans Thai",
+        "Sarabunnew",
+        "Sarabun",
+        "Chakra Petch",
+        ui-sans-serif,
+        system-ui,
+        sans-serif;
+
+    --font-noto:
+        "Noto Sans Thai",
+        ui-sans-serif,
+        system-ui,
+        sans-serif;
+
+    --font-sarabun:
+        "Sarabunnew",
+        "Sarabun",
+        ui-sans-serif,
+        system-ui,
+        sans-serif;
+
+    --font-chakra:
+        "Chakra Petch",
+        ui-sans-serif,
+        system-ui,
+        sans-serif;
+
+
+    /* ---------------------------------------------------------
+       WebARU Primary Colors
+    --------------------------------------------------------- */
+
+    --color-aru-primary: #A01D29;
+
+    --color-aru-gold: #FBB040;
+
+    --color-aru-gray: #58585A;
+
+    --color-aru-border: #D2D3D4;
+
+    --color-aru-white: #FFFFFF;
+
+
+    /* ---------------------------------------------------------
+       Additional UI Colors
+    --------------------------------------------------------- */
+
+    --color-aru-primary-dark: #7C1520;
+
+    --color-aru-primary-light: #C63140;
+
+    --color-aru-gold-dark: #E39920;
+
+    --color-aru-surface: #F8F8F8;
+
+    --color-aru-surface-soft: #F3F4F5;
+
+    --color-aru-text: #27272A;
+
+    --color-aru-muted: #71717A;
+}
+
+
+/* =============================================================
+   Base
+============================================================= */
+
+@layer base {
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-white font-sans text-aru-text antialiased;
+    }
+
+    button,
+    a {
+        @apply transition-colors duration-200;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+
+/* =============================================================
+   Components
+============================================================= */
+
+@layer components {
+
+    .webaru-container {
+        @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-title {
+        @apply text-2xl font-bold text-aru-text md:text-3xl;
+    }
+
+    .aru-button-primary {
+        @apply inline-flex items-center justify-center
+               rounded-lg
+               bg-aru-primary
+               px-6 py-3
+               font-semibold text-white
+               hover:bg-aru-primary-dark;
+    }
+
+    .aru-button-gold {
+        @apply inline-flex items-center justify-center
+               rounded-lg
+               bg-aru-gold
+               px-6 py-3
+               font-semibold text-aru-text
+               hover:bg-aru-gold-dark;
+    }
+
+    .aru-button-outline {
+        @apply inline-flex items-center justify-center
+               rounded-lg
+               border border-aru-primary
+               px-6 py-3
+               font-semibold text-aru-primary
+               hover:bg-aru-primary
+               hover:text-white;
+    }
+
+    .aru-card {
+        @apply overflow-hidden rounded-xl
+               border border-aru-border/60
+               bg-white
+               shadow-sm
+               transition
+               duration-300
+               hover:-translate-y-1
+               hover:shadow-lg;
+    }
+}

@@ -1,52 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
-/*
-|--------------------------------------------------------------------------
-| Tailwind Sources
-|--------------------------------------------------------------------------
-| ระบุไฟล์ที่ Tailwind ต้องตรวจสอบ class ที่ถูกใช้งาน
-*/
+
+/* =============================================================
+   Tailwind Sources
+============================================================= */
 
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
-@source "../../storage/framework/views/*.php";
-@source "../**/*.blade.php";
-@source "../**/*.js";
+
+@source "../views/welcome.blade.php";
+@source "../js/app.js";
+
+
+/* =============================================================
+   ARU Design Tokens
+============================================================= */
 
 @theme {
+
+    /* ---------------------------------------------------------
+       Typography
+    --------------------------------------------------------- */
+
+    --font-sans:
+        "Noto Sans Thai",
+        ui-sans-serif,
+        system-ui,
+        sans-serif;
+
+
+    /* ---------------------------------------------------------
+       University Primary
+    --------------------------------------------------------- */
+
+    --color-aru-primary: #7a1f2b;
+
+    --color-aru-primary-dark: #54131c;
+
+    --color-aru-primary-light: #9c3342;
+
+
+    /* ---------------------------------------------------------
+       University Gold
+    --------------------------------------------------------- */
+
+    --color-aru-gold: #d4a017;
+
+    --color-aru-gold-light: #f5d76e;
+
+    --color-aru-gold-dark: #a9780b;
+
+
+    /* ---------------------------------------------------------
+       Neutral / Surface
+    --------------------------------------------------------- */
+
+    --color-aru-surface: #f8fafc;
+
+    --color-aru-surface-soft: #f1f5f9;
+
+    --color-aru-text: #172033;
+
+    --color-aru-muted: #64748b;
+}
+
+
+
+/* =============================================================
+   Base
+============================================================= */
+
+@layer base {
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        @apply bg-aru-surface font-sans text-aru-text antialiased;
+    }
+
+
+    button,
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+    button {
+        cursor: pointer;
+    }
+
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
     /*
-     * เปลี่ยนค่าสีให้ตรงกับคู่มืออัตลักษณ์มหาวิทยาลัย
+     * Alpine.js
+     *
+     * ป้องกัน element ที่ใช้ x-show กระพริบ
+     * ก่อน Alpine initialize เสร็จ
      */
+    [x-cloak] {
+        display: none !important;
+    }
 
-    --color-university-primary: #7a1f2b;
-    --color-university-primary-dark: #54131c;
-
-    --color-university-secondary: #d4a017;
-    --color-university-secondary-light: #f5d76e;
-
-    --color-university-surface: #f8fafc;
-    --color-university-text: #172033;
-}
-/*
-|--------------------------------------------------------------------------
-| Alpine.js
-|--------------------------------------------------------------------------
-| ป้องกัน element แสดงก่อน Alpine เริ่มทำงาน
-*/
-
-[x-cloak] {
-    display: none !important;
 }
 
-/*
-|--------------------------------------------------------------------------
-| Base Styles
-|--------------------------------------------------------------------------
-*/
 
-html {
-    scroll-behavior: smooth;
+
+/* =============================================================
+   Components
+============================================================= */
+
+@layer components {
+
+
+    /* ---------------------------------------------------------
+       Main Container
+    --------------------------------------------------------- */
+
+    .aru-container {
+        @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+
+
+    /* ---------------------------------------------------------
+       Topbar
+    --------------------------------------------------------- */
+
+    .topbar-link {
+        @apply px-2 py-1
+               text-xs font-medium
+               text-white/80
+               transition-colors duration-200
+               hover:text-aru-gold-light;
+    }
+
+
+
+    /* ---------------------------------------------------------
+       Desktop Navigation
+    --------------------------------------------------------- */
+
+    .desktop-nav-link {
+        @apply flex h-14
+            items-center justify-center
+            whitespace-nowrap
+            border-b-[3px]
+            px-2
+            text-[13px] font-medium
+            leading-none
+            transition-colors duration-200
+            hover:border-aru-gold
+            hover:bg-white/5
+            hover:text-white
+            xl:px-3
+            xl:text-sm;
+    }
+
+
+
+    /* ---------------------------------------------------------
+       Mobile Navigation
+    --------------------------------------------------------- */
+
+    .mobile-nav-link {
+        @apply block
+               rounded-xl
+               px-4 py-3
+               text-[15px] font-medium
+               transition-colors duration-200
+               hover:bg-slate-100
+               hover:text-aru-primary;
+    }
+
+
+
+    /* ---------------------------------------------------------
+       Mobile Utility Navigation
+    --------------------------------------------------------- */
+
+    .mobile-utility-link {
+        @apply block
+               rounded-lg
+               px-3 py-2.5
+               text-sm text-slate-600
+               transition-colors duration-200
+               hover:bg-slate-100
+               hover:text-aru-primary;
+    }
+
 }
 
-body {
-    font-family: "Noto Sans Thai", sans-serif;
+
+
+/* =============================================================
+   Utilities
+============================================================= */
+
+@layer utilities {
+
+
+    /* ---------------------------------------------------------
+       Keyboard Accessibility
+    --------------------------------------------------------- */
+
+    .focus-aru {
+        @apply focus-visible:outline-none
+               focus-visible:ring-2
+               focus-visible:ring-aru-gold
+               focus-visible:ring-offset-2;
+    }
+
+
+
+    /* ---------------------------------------------------------
+       Heading Text Balance
+    --------------------------------------------------------- */
+
+    .text-balance {
+        text-wrap: balance;
+    }
+
+}
+
+
+/* =============================================================
+   Navigation Level 2
+============================================================= */
+
+@layer components {
+
+    /* Desktop Level 2 */
+    .desktop-submenu-panel {
+        @apply overflow-hidden
+               rounded-xl
+               border border-slate-200
+               bg-white
+               p-2
+               shadow-xl;
+    }
+
+    .desktop-submenu-link {
+        @apply block
+               rounded-lg
+               px-4 py-3
+               text-sm
+               transition-colors duration-150
+               hover:bg-slate-100
+               hover:text-aru-primary;
+    }
+
+
+    /* Mobile Level 2 */
+    .mobile-submenu-link {
+        @apply block
+               rounded-lg
+               border-l-2 border-slate-200
+               px-4 py-2.5
+               text-sm
+               transition-colors duration-150
+               hover:border-aru-gold
+               hover:bg-slate-100
+               hover:text-aru-primary;
+    }
+
 }

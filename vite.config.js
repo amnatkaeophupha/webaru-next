@@ -8,7 +8,11 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/js/app.js'
+                'resources/js/app.js',
+
+                // WebARU 2026
+                'resources/css/webaru_2026.css',
+                'resources/js/webaru_2026.js',
             ],
             refresh: true,
             fonts: [
