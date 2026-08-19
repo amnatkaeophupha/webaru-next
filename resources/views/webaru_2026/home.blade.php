@@ -8,8 +8,14 @@
     @php
         $heroSlides = [
             [
-                'image' => 'aru-carousel-01.png',
-                'alt' => 'มหาวิทยาลัยแห่งเมืองมรดกโลก สร้างคนดี มีปัญญา พัฒนาท้องถิ่น',
+                'desktop_image' => 'slide-01-desktop.webp',
+                'mobile_image' => 'slide-01-mobile.webp',
+                'alt' => 'วัดไชยวัฒนาราม มรดกโลกแห่งพระนครศรีอยุธยา',
+            ],
+            [
+                'desktop_image' => 'slide-02-desktop.webp',
+                'mobile_image' => 'slide-02-mobile.webp',
+                'alt' => 'อาคารมหาวิทยาลัยราชภัฏพระนครศรีอยุธยาริมสระน้ำ',
             ],
         ];
 
@@ -81,105 +87,11 @@
         ];
     @endphp
 
-    {{-- =========================================================
-        HERO / CAROUSEL
-    ========================================================== --}}
-    <section id="home" class="relative bg-[#F7F8FA] pt-4 sm:pt-5 lg:pt-6"
-        x-data="heroCarousel({ total: {{ count($heroSlides) }}, interval: 6000 })"
-        @mouseenter="stop()"
-        @mouseleave="start()">
-
-        <div class="webaru-container">
-            <div class="relative overflow-hidden rounded-[22px] border border-black/5 bg-white shadow-[0_22px_70px_rgba(15,23,42,0.08)] lg:rounded-[30px]">
-
-                {{-- Desktop/tablet: preserve the 1920x720 artwork exactly --}}
-                <div class="hidden md:block">
-                    <div class="relative aspect-[8/3] w-full overflow-hidden bg-white">
-                        @foreach ($heroSlides as $index => $slide)
-                            <div x-cloak x-show="active === {{ $index }}" x-transition.opacity.duration.700ms class="absolute inset-0">
-                                <img src="{{ asset('images/webaru_2026/hero/' . $slide['image']) }}"
-                                    alt="{{ $slide['alt'] }}"
-                                    width="1920"
-                                    height="720"
-                                    @if ($index === 0) fetchpriority="high" @else loading="lazy" @endif
-                                    class="block h-full w-full object-cover object-center">
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-
-                {{-- Mobile: use the right side of the same artwork as a visual, then render readable HTML content --}}
-                <div class="md:hidden">
-                    <div class="relative h-[245px] overflow-hidden bg-[#EAF4FC]">
-                        <img src="{{ asset('images/webaru_2026/hero/aru-carousel-01.png') }}"
-                            alt="วัดและเจดีย์ในจังหวัดพระนครศรีอยุธยา"
-                            width="1920"
-                            height="720"
-                            fetchpriority="high"
-                            class="h-full w-full scale-[1.8] object-cover object-[82%_50%]">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 rounded-full border border-white/35 bg-white/90 px-3 py-1.5 text-[11px] font-semibold text-aru-primary shadow-sm backdrop-blur">
-                            มหาวิทยาลัยแห่งเมืองมรดกโลก
-                        </div>
-                    </div>
-
-                    <div class="relative px-5 pb-5 pt-6">
-                        <div class="pointer-events-none absolute -right-10 top-0 h-28 w-28 rounded-full bg-aru-gold/15 blur-2xl"></div>
-
-                        <h1 class="relative text-[34px] font-extrabold leading-[1.16] tracking-tight">
-                            <span class="block text-aru-primary">สร้างคนดี มีปัญญา</span>
-                            <span class="mt-1 block text-aru-text">พัฒนาท้องถิ่น</span>
-                        </h1>
-
-                        <p class="relative mt-4 text-sm leading-7 text-aru-muted">
-                            มุ่งมั่นจัดการศึกษาที่มีคุณภาพ ได้มาตรฐานสากล บูรณาการองค์ความรู้คู่คุณธรรม เพื่อพัฒนาท้องถิ่นอย่างยั่งยืน
-                        </p>
-
-                        <div class="relative mt-5 grid grid-cols-2 gap-3">
-                            <a href="#" class="inline-flex min-h-12 items-center justify-center rounded-xl bg-aru-primary px-4 text-sm font-semibold text-white shadow-lg shadow-aru-primary/20">
-                                เกี่ยวกับมหาวิทยาลัย
-                            </a>
-                            <a href="#admission" class="inline-flex min-h-12 items-center justify-center rounded-xl bg-aru-gold px-4 text-sm font-semibold text-aru-text shadow-lg shadow-aru-gold/20">
-                                สมัครเรียนออนไลน์
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Floating quick services --}}
-                <div class="border-t border-black/5 bg-white px-3 py-3 sm:px-4 lg:px-5 lg:py-4">
-                    <div class="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
-                        @foreach ($quickServices as $index => $service)
-                            <a href="{{ $service['url'] }}"
-                                class="group flex min-h-[72px] items-center gap-3 rounded-2xl border border-aru-border/70 bg-[#FBFBFC] px-4 transition duration-300 hover:-translate-y-0.5 hover:border-aru-primary/35 hover:bg-white hover:shadow-lg hover:shadow-black/5 lg:min-h-[78px] lg:px-5">
-                                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-aru-primary/10 text-sm font-extrabold text-aru-primary transition group-hover:bg-aru-primary group-hover:text-white">
-                                    0{{ $index + 1 }}
-                                </span>
-                                <span class="min-w-0">
-                                    <span class="block truncate text-sm font-bold text-aru-text group-hover:text-aru-primary">{{ $service['label'] }}</span>
-                                    <span class="mt-0.5 block text-[10px] uppercase tracking-wide text-aru-muted">{{ $service['subtitle'] }}</span>
-                                </span>
-                            </a>
-                        @endforeach
-                    </div>
-                </div>
-
-                @if (count($heroSlides) > 1)
-                    <div class="absolute bottom-[112px] left-1/2 z-20 hidden -translate-x-1/2 gap-2 md:flex">
-                        @foreach ($heroSlides as $index => $slide)
-                            <button type="button"
-                                class="h-2.5 rounded-full shadow-sm transition-all duration-300"
-                                :class="active === {{ $index }} ? 'w-8 bg-aru-primary' : 'w-2.5 bg-white/90'"
-                                @click="goTo({{ $index }})"
-                                aria-label="ไปยังสไลด์ที่ {{ $index + 1 }}">
-                            </button>
-                        @endforeach
-                    </div>
-                @endif
-            </div>
-        </div>
-    </section>
-
+    @include('webaru_2026.sections.carousel', [
+        'slides' => $heroSlides,
+        'quickServices' => $quickServices,
+        'interval' => 6000,
+    ])
     {{-- =========================================================
         ANNOUNCEMENT
     ========================================================== --}}
