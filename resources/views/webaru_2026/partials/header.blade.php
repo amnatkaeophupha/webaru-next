@@ -39,13 +39,13 @@
                 <img src="{{ asset('images/webaru_2026/logo/aru-logo.png') }}"
                     alt="ตราสัญลักษณ์มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา" class="h-14 w-auto sm:h-[62px]">
 
-                <div class="hidden sm:block">
-                    <div class="text-[17px] font-extrabold leading-[1.25] lg:text-lg">
+                <div class="block min-w-0">
+                    <div class="text-[14px] font-extrabold leading-[1.25] sm:text-[17px] lg:text-lg">
                         <span class="block text-aru-muted">มหาวิทยาลัยราชภัฏ</span>
                         <span class="block text-aru-primary">พระนครศรีอยุธยา</span>
                     </div>
                     <div
-                        class="mt-1 text-[9px] font-medium uppercase tracking-[0.035em] text-aru-muted/80 lg:text-[10px]">
+                        class="mt-1 hidden text-[9px] font-medium uppercase tracking-[0.035em] text-aru-muted/80 sm:block lg:text-[10px]">
                         Phranakhon Si Ayutthaya Rajabhat University
                     </div>
                 </div>

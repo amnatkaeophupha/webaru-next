@@ -354,17 +354,6 @@
 
         /*
         |--------------------------------------------------------------------------
-        | สมัครเรียน
-        |--------------------------------------------------------------------------
-        */
-        [
-            'label' => 'รับสมัครนักศึกษา',
-            'url' => 'https://www.aru.ac.th/enroll_aru/',
-            'pattern' => 'admission*',
-        ],
-
-        /*
-        |--------------------------------------------------------------------------
         | บริการมหาวิทยาลัย
         |
         | รวมเมนูเดิม:
@@ -495,28 +484,30 @@
                         ],
                     ],
                 ],
+            ],
+        ],
 
-                /*
-                |--------------------------------------------------------------------------
-                | ผู้สำเร็จการศึกษา
-                |--------------------------------------------------------------------------
-                */
+        /*
+        |--------------------------------------------------------------------------
+        | สมัครเรียน
+        |--------------------------------------------------------------------------
+        */
+        [
+            'label' => 'รายงานผลการดำเนินงาน',
+            'pattern' => 'report-aru*',
+            'layout' => 'dropdown',
+
+            'children' => [
                 [
-                    'label' => 'ผู้สำเร็จการศึกษา',
+                    'label' => 'การเปิดเผยข้อมูลสาธารณะ',
+                    'url' => 'https://www.aru.ac.th/opendata/',
+                    'new_tab' => true,
+                ],
 
-                    'children' => [
-                        [
-                            'label' => 'ลงทะเบียนบัณฑิตปี ๒๕๖๗',
-                            'url' => 'https://www.aru.ac.th/graduation/',
-                            'new_tab' => true,
-                        ],
-
-                        [
-                            'label' => 'สมาคมศิษย์เก่า มรภ.อย.',
-                            'url' => 'https://www.aru.ac.th/alumni/',
-                            'new_tab' => true,
-                        ],
-                    ],
+                [
+                    'label' => 'รายงานการขับเคลื่อนเป้าหมายการพัฒนาที่ยั่งยืน (SDGs)',
+                    'url' => 'https://www.aru.ac.th/SDGs2025/',
+                    'new_tab' => true,
                 ],
             ],
         ],
@@ -1027,9 +1018,7 @@
                             @class([
                                 'flex w-full items-center justify-between gap-3 rounded-xl px-4 py-3 text-left text-sm transition-colors duration-150 hover:bg-aru-surface-soft hover:text-aru-primary',
                             
-                                'bg-aru-primary/10
-                                                                                                                     font-semibold
-                                                                                                                     text-aru-primary' => $active,
+                                'bg-aru-primary/10 font-semibold text-aru-primary' => $active,
                             
                                 'text-slate-700' => !$active,
                             ])>
@@ -1251,9 +1240,7 @@
                         @click="mobileMenuOpen = false" @class([
                             'flex w-full items-center rounded-xl px-4 py-3 text-sm transition-colors duration-150 hover:bg-aru-surface-soft hover:text-aru-primary',
                         
-                            'bg-aru-primary/10
-                                                                                                     font-semibold
-                                                                                                     text-aru-primary' => $active,
+                            'bg-aru-primary/10 font-semibold text-aru-primary' => $active,
                         
                             'text-slate-700' => !$active,
                         ])
