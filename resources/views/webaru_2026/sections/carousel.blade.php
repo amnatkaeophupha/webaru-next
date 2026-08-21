@@ -3,7 +3,7 @@
 {{-- =========================================================
     HERO / CAROUSEL
 ========================================================== --}}
-<section id="home" class="relative bg-[#F7F8FA] pt-4 sm:pt-5 lg:pt-6"
+<section id="home" class="relative bg-gradient-to-b from-aru-surface-soft to-white pt-4 sm:pt-5 lg:pt-6"
     x-data="heroCarousel({ total: {{ count($slides) }}, interval: {{ $interval }} })"
     @mouseenter="pauseForHover()" @mouseleave="resumeAfterHover()" @focusin="pauseForFocus()"
     @focusout="if (!$el.contains($event.relatedTarget)) resumeAfterFocus()" @keydown.arrow-left.prevent="previous()"
@@ -101,7 +101,7 @@
                 <div class="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
                     @foreach ($quickServices as $index => $service)
                         <a href="{{ $service['url'] }}"
-                            class="group flex min-h-[72px] items-center gap-3 rounded-2xl border border-aru-border/70 bg-[#FBFBFC] px-4 transition duration-300 hover:-translate-y-0.5 hover:border-aru-primary/35 hover:bg-white hover:shadow-lg hover:shadow-black/5 lg:min-h-[78px] lg:px-5">
+                            class="group flex min-h-[72px] items-center gap-3 rounded-2xl border border-aru-border/70 bg-aru-surface px-4 transition duration-300 hover:-translate-y-0.5 hover:border-aru-primary/35 hover:bg-white hover:shadow-lg hover:shadow-black/5 lg:min-h-[78px] lg:px-5">
                             <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-aru-primary/10 text-sm font-extrabold text-aru-primary transition group-hover:bg-aru-primary group-hover:text-white">
                                 0{{ $index + 1 }}
                             </span>

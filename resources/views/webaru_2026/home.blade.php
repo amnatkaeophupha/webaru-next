@@ -87,38 +87,42 @@
             ],
         ];
 
-        $news = [
+        $photoGallery = [
             [
-                'image' => 'news-01.jpg',
-                'category' => 'กิจกรรม',
-                'title' => 'พิธีถวายราชสดุดีวันเฉลิมพระชนมพรรษา',
+                'thumbnail_url' => asset('storage/webaru_2026/gallery/thumbnails/gallery-01.webp'),
+                'title' => 'พิธีถวายราชสดุดีวันเฉลิมพระชนมพรรษา สมเด็จพระนางเจ้าฯ พระบรมราชินี',
                 'date' => '3 มิถุนายน 2569',
                 'day' => '03',
                 'month' => 'มิ.ย.',
+                'views' => 1245,
+                'url' => '#',
             ],
             [
-                'image' => 'news-02.jpg',
-                'category' => 'กิจกรรม',
-                'title' => 'ARU OPEN HOUSE เปิดบ้านราชภัฏอยุธยา',
+                'thumbnail_url' => asset('storage/webaru_2026/gallery/thumbnails/gallery-02.webp'),
+                'title' => 'ARU OPEN HOUSE เปิดบ้านราชภัฏอยุธยา ต้อนรับน้องๆ สู่รั้วมหาวิทยาลัย',
                 'date' => '31 พฤษภาคม 2569',
                 'day' => '31',
                 'month' => 'พ.ค.',
+                'views' => 2186,
+                'url' => '#',
             ],
             [
-                'image' => 'news-03.jpg',
-                'category' => 'ข่าว',
-                'title' => 'มหาวิทยาลัยจัดโครงการพัฒนาศักยภาพนักศึกษา',
+                'thumbnail_url' => asset('storage/webaru_2026/gallery/thumbnails/gallery-03.webp'),
+                'title' => 'มหาวิทยาลัยจัดโครงการพัฒนาศักยภาพนักศึกษาและบุคลากร',
                 'date' => '28 พฤษภาคม 2569',
                 'day' => '28',
                 'month' => 'พ.ค.',
+                'views' => 980,
+                'url' => '#',
             ],
             [
-                'image' => 'news-04.jpg',
-                'category' => 'ประกาศ',
-                'title' => 'ประกาศรายชื่อผู้มีสิทธิ์สอบคัดเลือกเข้าศึกษาต่อ',
+                'thumbnail_url' => asset('storage/webaru_2026/gallery/thumbnails/gallery-04.webp'),
+                'title' => 'ประกาศรายชื่อผู้มีสิทธิ์สอบคัดเลือกเข้าศึกษาต่อ ประจำปีการศึกษา 2569',
                 'date' => '25 พฤษภาคม 2569',
                 'day' => '25',
                 'month' => 'พ.ค.',
+                'views' => 1532,
+                'url' => '#',
             ],
         ];
 
@@ -156,7 +160,7 @@
     {{-- =========================================================
         ANNOUNCEMENT
     ========================================================== --}}
-    <section class="bg-[#F7F8FA] py-4 lg:py-5">
+    <section class="bg-white py-4 lg:py-5">
         <div class="webaru-container">
             <div
                 class="flex min-h-16 items-center gap-4 rounded-2xl bg-gradient-to-r from-[#8E1420] via-aru-primary to-[#B21B2B] px-4 text-white shadow-[0_12px_30px_rgba(142,20,32,0.18)] sm:px-5 lg:px-6">
@@ -177,58 +181,6 @@
     </section>
 
     {{-- =========================================================
-        NEWS
-    ========================================================== --}}
-    <section id="news" class="border-y border-aru-border/40 bg-white py-12 lg:py-16">
-        <div class="webaru-container">
-            <div class="mb-7 flex items-end justify-between gap-5 lg:mb-9">
-                <div>
-                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-aru-primary">News & Activities</p>
-                    <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-aru-text sm:text-3xl">ข่าวสารและกิจกรรม</h2>
-                    <p class="mt-2 hidden text-sm text-aru-muted sm:block">ติดตามข่าวประชาสัมพันธ์ กิจกรรม
-                        และความเคลื่อนไหวของมหาวิทยาลัย</p>
-                </div>
-                <a href="#"
-                    class="inline-flex shrink-0 items-center gap-2 rounded-xl border border-aru-primary/25 bg-white px-4 py-2.5 text-sm font-semibold text-aru-primary shadow-sm transition hover:border-aru-primary hover:bg-aru-primary hover:text-white">
-                    ดูทั้งหมด <span aria-hidden="true">→</span>
-                </a>
-            </div>
-
-            <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-                @foreach ($news as $item)
-                    <article
-                        class="group overflow-hidden rounded-[22px] border border-black/5 bg-white shadow-[0_10px_35px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
-                        <a href="#" class="relative block aspect-[16/10] overflow-hidden bg-slate-100">
-                            <img src="{{ asset('images/webaru_2026/news/' . $item['image']) }}" alt="{{ $item['title'] }}"
-                                loading="lazy"
-                                class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
-
-                            <div
-                                class="absolute left-3 top-3 flex min-w-[52px] flex-col items-center rounded-xl border border-white/70 bg-white/95 px-2.5 py-2 text-center shadow-lg backdrop-blur">
-                                <span
-                                    class="text-lg font-extrabold leading-none text-aru-primary">{{ $item['day'] }}</span>
-                                <span class="mt-1 text-[10px] font-semibold text-aru-muted">{{ $item['month'] }}</span>
-                            </div>
-                        </a>
-
-                        <div class="p-5">
-                            <span
-                                class="inline-flex rounded-full bg-aru-gold/15 px-2.5 py-1 text-[11px] font-bold text-[#9A6B00]">{{ $item['category'] }}</span>
-                            <h3 class="mt-3 line-clamp-2 min-h-[3.5rem] text-[15px] font-bold leading-7 text-aru-text">
-                                <a href="#" class="transition group-hover:text-aru-primary">{{ $item['title'] }}</a>
-                            </h3>
-                            <div class="mt-4 flex items-center justify-between text-xs text-aru-muted">
-                                <span>{{ $item['date'] }}</span>
-                                <span class="font-semibold text-aru-primary">อ่านต่อ →</span>
-                            </div>
-                        </div>
-                    </article>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- =========================================================
         ARUNEWS
     ========================================================== --}}
     @include('webaru_2026.sections.arunews', [
@@ -238,9 +190,17 @@
     ])
 
     {{-- =========================================================
+        ARU PHOTO GALLERY
+    ========================================================== --}}
+    @include('webaru_2026.sections.photogallery', [
+        'items' => $photoGallery,
+        'allUrl' => '#',
+    ])
+
+    {{-- =========================================================
         FACULTIES
     ========================================================== --}}
-    <section id="faculties" class="border-y border-aru-border/40 bg-white py-12 lg:py-16">
+    <section id="faculties" class="border-y border-aru-border/50 bg-aru-surface py-12 lg:py-16">
         <div class="webaru-container">
             <div class="mb-8 flex items-end justify-between gap-5">
                 <div>
@@ -275,7 +235,7 @@
     {{-- =========================================================
         ADMISSION
     ========================================================== --}}
-    <section id="admission" class="bg-[#F7F8FA] pb-4 pt-4 lg:pb-6 lg:pt-6">
+    <section id="admission" class="bg-white pb-4 pt-4 lg:pb-6 lg:pt-6">
         <div class="webaru-container">
             <div
                 class="relative overflow-hidden rounded-[28px] bg-gradient-to-r from-[#74111B] via-[#A51624] to-[#C42533] text-white shadow-[0_24px_65px_rgba(122,16,28,0.18)] lg:rounded-[32px]">
@@ -354,10 +314,10 @@
     {{-- =========================================================
         STATISTICS
     ========================================================== --}}
-    <section class="border-y border-aru-border/40 bg-white py-8 lg:py-10">
+    <section class="border-y border-aru-border/50 bg-aru-surface-soft py-8 lg:py-10">
         <div class="webaru-container">
             <div
-                class="grid overflow-hidden rounded-[22px] border border-aru-border/70 bg-[#FBFBFC] sm:grid-cols-2 lg:grid-cols-5">
+                class="grid overflow-hidden rounded-[22px] border border-aru-border/70 bg-white sm:grid-cols-2 lg:grid-cols-5">
                 @foreach ($statistics as $index => $stat)
                     <div
                         class="relative px-5 py-6 text-center lg:py-7 {{ $index > 0 ? 'border-t border-aru-border/70 sm:border-t-0 lg:border-l' : '' }} {{ $index === 2 || $index === 4 ? 'sm:border-t' : '' }}">
@@ -373,7 +333,7 @@
     {{-- =========================================================
         ONLINE SERVICES
     ========================================================== --}}
-    <section id="services" class="bg-[#F7F8FA] py-12 lg:py-16">
+    <section id="services" class="bg-white py-12 lg:py-16">
         <div class="webaru-container">
             <div class="mb-8">
                 <p class="text-xs font-bold uppercase tracking-[0.18em] text-aru-primary">Digital Services</p>

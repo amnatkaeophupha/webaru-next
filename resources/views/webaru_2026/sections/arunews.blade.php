@@ -16,7 +16,7 @@
 
 @if ($featured)
 
-    <section id="arunews" class="relative overflow-hidden bg-[#F7F8FA] py-12 lg:py-16">
+    <section id="arunews" class="relative overflow-hidden bg-aru-surface-soft py-12 lg:py-16">
 
 
         <div class="webaru-container">
@@ -45,9 +45,9 @@
 
 
                     <h2
-                        class="mt-3 text-3xl font-extrabold
+                        class="mt-3 text-2xl font-extrabold
                            tracking-tight
-                           sm:text-4xl">
+                           sm:text-3xl">
                         <span class="text-aru-primary">
                             ARU
                         </span>
@@ -77,30 +77,8 @@
 
 
                 <a href="{{ $allUrl }}"
-                    class="inline-flex self-center
-                       items-center gap-3
-                       rounded-full
-                       border border-aru-primary/40
-                       bg-white
-                       px-5 py-3
-                       text-sm font-bold
-                       text-aru-primary
-                       shadow-xs
-                       transition
-                       hover:border-aru-primary
-                       hover:bg-aru-primary
-                       hover:text-white
-                       focus-visible:outline-2
-                       focus-visible:outline-offset-2
-                       focus-visible:outline-aru-primary
-                       md:self-auto">
-                    ดูทั้งหมด
-
-                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                        aria-hidden="true">
-                        <path d="m9 18 6-6-6-6" />
-                    </svg>
-
+                    class="inline-flex shrink-0 items-center gap-2 rounded-xl border border-aru-primary/25 bg-white px-4 py-2.5 text-sm font-semibold text-aru-primary shadow-sm transition hover:border-aru-primary hover:bg-aru-primary hover:text-white">
+                    ดูทั้งหมด <span aria-hidden="true">→</span>
                 </a>
 
             </div>
@@ -325,7 +303,7 @@
                 ================================================== --}}
 
                     <div
-                        class="divide-y divide-aru-border/60 bg-[#FCFCFD]
+                        class="divide-y divide-aru-border/60 bg-aru-surface
                            px-5
                            sm:px-6
                            lg:px-7">
